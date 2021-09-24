@@ -1,0 +1,56 @@
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using Vuforia;
+
+public class robot : MonoBehaviour
+{
+    public GameObject robo;
+    public GameObject bird;
+    public GameObject bee;
+    public VirtualButtonBehaviour VbBird;
+    public VirtualButtonBehaviour VbRobo; // объект для кнопки
+    public VirtualButtonBehaviour Vbbee;
+
+    // Start is called before the first frame update
+    void Start()
+    {
+       
+        VbRobo.RegisterOnButtonPressed(OnButtonPressedRobo);
+        VbBird.RegisterOnButtonPressed(OnButtonPressedBird);
+        Vbbee.RegisterOnButtonPressed(OnButtonPressedbee);
+        robo.SetActive(true);
+        bird.SetActive(false);
+        bee.SetActive(false);
+    }
+
+    public void OnButtonPressedRobo(VirtualButtonBehaviour vb)
+    {
+        // включаем воспроизведение анимации с названием "object_animation"
+        robo.SetActive(true);
+        bird.SetActive(false);
+        bee.SetActive(false);
+        Debug.Log("Работает");
+
+    }
+  
+    public void OnButtonPressedBird(VirtualButtonBehaviour vb)
+    {
+        // включаем воспроизведение анимации с названием "object_animation"
+        bird.SetActive(true);
+        robo.SetActive(false);
+        bee.SetActive(false);
+        Debug.Log("Работает");
+
+    }
+    public void OnButtonPressedbee(VirtualButtonBehaviour vb)
+    {
+        // включаем воспроизведение анимации с названием "object_animation"
+        bee.SetActive(true);
+        bird.SetActive(false);
+        robo.SetActive(false);
+        Debug.Log("Работает");
+
+    }
+}
